@@ -5,13 +5,14 @@ const basicAuth = require('express-basic-auth');
 const httpsRedirect = require('express-https-redirect');
 const publicPath = path.join(__dirname, 'build');
 const PORT = process.env.PORT || 4000;
+require('dotenv').config()
 
 if (process.env.REACT_APP_AUTH_OVERLAY == "true"){
 
   app.use(basicAuth({
     users: { 
       'admin': 'yorlie',
-      'yorlie': process.env.SERVER_PASSSWORD
+      'yorlie': process.env.REACT_APP_SERVER_PASSSWORD
     },
     challenge: true,
   }))
