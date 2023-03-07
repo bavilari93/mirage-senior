@@ -18,10 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "baseUrl": "src"
   },
   "include": [
-    "src","decs.d.ts"
+    "src",
+    "decs.d.ts"
   ]
 }

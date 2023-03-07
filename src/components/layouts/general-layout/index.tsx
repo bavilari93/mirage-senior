@@ -1,20 +1,28 @@
 import React from 'react';
 import { LayoutProps } from 'models/layouts';
-import { OverlayModal } from 'components/modal/overlay-modal';
+import { Portal } from 'components/portal';
 import { useAppSelector } from 'redux/store';
+import NavBar from 'components/navigation';
+import { Modal } from 'components/modal/modal';
+import NavOverlay from 'components/nav-overlay';
 
 
 // this wrapper will handle general page styling 
 const GeneralPagesLayout : React.FC<LayoutProps> = ({ children }) => {
   const {
-    common: { showModal },
+    // show menu 
+    common: { showModal,showNav },
   } = useAppSelector((state) => state);
   
   return (
-    <div>
+    <>
+        <NavBar/>
         {children}
-        {showModal &&<OverlayModal/> }
-    </div>
+        {showModal && <Portal component={<Modal/>} portalId="generic-modal"/> }
+        {showNav   && <Portal component={<NavOverlay/>} portalId="nav-overlay"/>}
+
+        
+    </>
   )
 }
 

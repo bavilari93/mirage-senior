@@ -1,26 +1,147 @@
-import React from 'react';
-import { promptModal } from 'redux/slices/common';
-import { useAppDispatch } from 'redux/store';
-import { staticMapModal } from 'common/helper/modals';
-import { Link } from 'react-router-dom';
-import { PATH_PAGE } from 'router/paths';
+import React from "react";
+import { useAppDispatch } from "redux/store";
+import { Box } from "@mui/system";
+import { Text } from "common/text";
+import TextItem from "components/text";
+import { AnimationOnScroll } from "react-animation-on-scroll";
+import DynamicButton from "components/button";
+import { useNavigate } from "react-router";
+import { PATH_PAGE } from "router/paths";
 
-const Home = ():JSX.Element => {
-    const dispatch = useAppDispatch();
+const Home = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-    return (
-        <div>
-            <div onClick={()=>{dispatch(promptModal({modalData: staticMapModal}))}}>THIS IS HOME</div>
-            <div style={{display:'flex', flexDirection:"column"}}>
-            <Link to={PATH_PAGE.about}>About the creator</Link>
-            <Link to={PATH_PAGE.mirage.root}>About mirage</Link>
-            <Link to={PATH_PAGE.mirage.instructions}>Instructions about the project</Link>
-            <Link to={PATH_PAGE.mirage.map.interactive}>Interactive Map</Link>
-            <Link to={ PATH_PAGE.mirage.map.static}>Static Map</Link>
-            </div>
+  return (
+    <Box>
+      <Box sx={styles.heroHeader}>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "right" }}
+          initiallyVisible={false}
+        >
+          <TextItem
+            text={Text.home.hero}
+            sx={{ fontFamily: "Tan", fontSize:"100px" }}
+            color={"inherit"}
+            variant="h2"
+            align={"center"}
+          />
+        </AnimationOnScroll>
+      </Box>
+      <Box sx={styles.heroDescription}>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "center", margin:"-20px" }}
+          initiallyVisible={false}
+        >
+          <TextItem
+            text={Text.home.where}
+            sx={styles.heroContentText}
+            color={"inherit"}
+            variant="h3"
+            align={"center"}
+      
+          />
+        </AnimationOnScroll>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "center", margin:"-20px" }}
+          initiallyVisible={false}
+        >
+          <TextItem
+            text={Text.home.memories}
+            sx={styles.heroContentText}
+            color={"inherit"}
+            variant="h2"
+            align={"center"}
+            fontWeight={600}
+          />
+        </AnimationOnScroll>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "center", margin:"-20px"  }}
+          initiallyVisible={false}
+        >
+          <TextItem
+            text={Text.home.become}
+            sx={styles.heroContentText}
+            color={"inherit"}
+            variant="h3"
+            align={"center"}
+          />
+        </AnimationOnScroll>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "center", margin:"-20px"  }}
+          initiallyVisible={false}
+        >
+          <TextItem
+            text={Text.home.reality}
+            sx={styles.heroContentText}
+            color={"inherit"}
+            variant="h2"
+            align={"center"}
+            fontWeight={600}
 
-        </div>
-    );
+          />
+        </AnimationOnScroll>
+      </Box>
+
+      <Box sx={styles.heroHeader}>
+
+      <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          style={{ textAlign: "center" }}
+          initiallyVisible={false}
+        >
+      <DynamicButton
+        variant="contained"
+        onPress={()=>{navigate(PATH_PAGE.mirage.root)}}
+        text={Text.buttonCopy.learnMore}
+        sx={styles.buttonStyle}
+      />
+      </AnimationOnScroll>
+      </Box>
+
+    </Box>
+  );
 };
 
 export default Home;
+
+const styles = {
+  heroHeader: {
+    height: "100vh",
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    position:'relative',
+    top:"50%",
+    marginTop: "-2.5rem"
+  },
+  heroDescription:{
+    height: "100vh",
+    display:'flex',
+    flexDirection:"column", 
+    justifyContent:'center',
+    alignItems:'center',
+    position:'relative',
+    top:"50%",
+    marginTop: "-2.5rem"
+  },
+  heroContentText:{
+    fontFamily: "Dahlia", 
+    fontSize:"100px"
+  },
+  buttonStyle:{
+    fontFamily:"Dahlia",
+    background: "none",
+    color: "black",
+    border: "1px solid black",
+    fontSize: "24px",
+    cursor:"pointer",
+    borderRadius:"100%",
+    padding:"2rem"
+  }
+};

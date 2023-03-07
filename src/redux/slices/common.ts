@@ -9,6 +9,7 @@ import {
 export const initialState: CommonStateModel = {
     //modal
     showModal: false,
+    showNav:false,
     modalType:'generic',
     modalData:{
       messageTitle:'',
@@ -38,12 +39,16 @@ const commonSlice = createSlice({
       state.showModal = false;
       state.modalType ='generic';
     },
+    handleNavState:(state) =>{
+      state.showNav = !state.showNav;
+    },
   }
 })
 
 export const { 
   promptModal, 
   hideModal,
+  handleNavState,
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

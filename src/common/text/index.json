@@ -1,0 +1,35 @@
+{
+    "navLinks":{
+        "home":"HOME",
+        "about":"ABOUT",
+        "howTo":"HOW TO USE",
+        "map":"MAP" 
+    },
+    "home":{
+        "hero":"mirage",
+        "where":"where",
+        "memories":"Memories",
+        "become":"become", 
+        "reality":"Reality"
+    },
+    "about":{
+        "about":"ABOUT",
+        "mirageIs" : "mirage is an ",
+        "interactive":"interactive ",
+        "experience":"experience that takes you in a retrospect of the most precious memories the ",
+        "artist":"artist ",
+        "savannah":"had over the last 4 years in Savannah, GA."
+    },
+    "howTo":{
+        "prompt":"which map are you interacting with today?",
+        "web":"web",
+        "interactive":"interactive",
+        "interactiveInstructionOne":"head to the closest pin-point in the map.",
+        "interactiveInstructionTwo":"once within 50 meters, press the icon on top of the pin",
+        "interactiveInstructionThree":"enjoy your interaction!"
+    },
+    "buttonCopy":{
+        "learnMore":"Learn More"
+    }
+
+}

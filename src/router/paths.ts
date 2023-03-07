@@ -4,7 +4,8 @@ const path = (root: string, sublink: string): string => {
   
   const ROOTS = {
     app: "/",
-    about:'/about-the-creator'
+    about:'/about-the-creator',
+    map:'/map'
   };
   
   export const PROJECT_PAGE = {
@@ -14,6 +15,7 @@ const path = (root: string, sublink: string): string => {
   export const PATH_PAGE = {
     root: ROOTS.app,
     about:ROOTS.about,
+    map:ROOTS.map,
     mirage: {
       root: path(PROJECT_PAGE.project, "/about"),
       instructions: path(PROJECT_PAGE.project, "/how-to-use"),

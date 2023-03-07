@@ -19,6 +19,11 @@ const AppRoutes :RoutesProps = {
       path: PATH_PAGE.about,
       component: lazy(() => import('screens/about-the-creator'))
     },
+     
+    {
+      path: PATH_PAGE.map,
+      component: lazy(() => import('screens/maps/index'))
+    },
     {
       path: PATH_PAGE.mirage.root,
       component: lazy(() => import('screens/about/index'))

@@ -37,6 +37,20 @@
   }
 }
 
+/* ########################### FONTS ################################# */
+@font-face {
+  font-family: 'Dahlia';
+  src: local("Dahlia-Regular"),url("./fonts/Dahlia-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Tan';
+  src: local("TAN-WAVERLY"),url("./fonts/TAN-WAVERLY.woff") format("woff");
+}
+
+
+
+/* ########################### PORTALS ################################# */
 .modal-wrapper {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -54,4 +68,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+#nav-overlay{
+
 }
