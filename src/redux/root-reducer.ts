@@ -16,7 +16,7 @@ const commonPersistConfig = {
   key: "commonReducer",
   storage: storage,
   keyPrefix: "redux-",
-  whitelist: ["displayModal"],
+  whitelist: ["displayModal", "viewedInteractive", "viewedStatic"],
 };
 
  

@@ -13,6 +13,8 @@ const TextItem : React.FC<TypographyProps> = ({
   noWrap = false,
   fontWeight = "regular",
   onClick = () => {},
+  className="",
+  fontSize,
   sx = {}
 }) => {
   const innerText = text
@@ -26,7 +28,9 @@ const TextItem : React.FC<TypographyProps> = ({
       noWrap={noWrap}
       onClick={onClick}
       fontWeight={fontWeight}
+      fontSize={fontSize}
       sx={{...sx}}
+      className={className}
     >
       {children ? children : innerText}
     </Typography>

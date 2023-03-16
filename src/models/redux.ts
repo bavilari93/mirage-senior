@@ -1,6 +1,8 @@
 export type CommonStateModel = {
     modalType?: string; 
     showModal?: boolean;
+    viewedInteractive?:boolean,
+    viewedStatic?:boolean,
     showNav?:boolean;
     modalData: ModalPayload;
   };

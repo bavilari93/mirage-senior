@@ -16,6 +16,7 @@ const DynamicButton : React.FC<ButtonProps> = ({
   buttonAlignment = 'center',
   onPress, 
   text, 
+  className,
   sx = {}, 
 }) => {
   return (
@@ -34,6 +35,7 @@ const DynamicButton : React.FC<ButtonProps> = ({
         variant={variant}
         color={foreColor}
         sx={{...sx, fontWeight:'bold'}}
+        className={className}
       >
         
          {

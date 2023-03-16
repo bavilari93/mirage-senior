@@ -24,12 +24,31 @@
         "prompt":"which map are you interacting with today?",
         "web":"web",
         "interactive":"interactive",
-        "interactiveInstructionOne":"head to the closest pin-point in the map.",
-        "interactiveInstructionTwo":"once within 50 meters, press the icon on top of the pin",
-        "interactiveInstructionThree":"enjoy your interaction!"
+        "howToUse":"how to use",
+        "interactiveSteps" : {
+            "instructionOne":"1. head to the closest pin-point in the map.",
+            "instructionTwo":"2. once within 50 meters, press the icon on top of the pin.",
+            "instructionThree":"3. enjoy your interaction!"
+        },
+        "staticSteps" :{
+            "instructionOne":"1. select the point you would like to try.",
+            "instructionTwo":"2. select your interaction type",
+            "instructionThree":"3. enjoy your interaction!"
+        },
+        "next":"Next"
+       
     },
     "buttonCopy":{
         "learnMore":"Learn More"
+    },
+    "mapModal":{
+        "messageTitle":"explore the art",
+        "qrCode":"QR Code",
+        "adobeExperience":"Adobe Experience"
+    },
+    "errorModal":{
+        "messageTitle":"Out of bounds", 
+        "message":"Go close 50 meters to any of the pointers."
     }
 
 }

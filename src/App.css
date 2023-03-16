@@ -63,12 +63,37 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .modal-content{
+  position: relative;
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
-#nav-overlay{
 
+
+
+
+@media screen and (max-width: 600px) {
+  .modal-content {
+    margin: 40% auto !important;
+  }
+  .closeButton{
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+  }
+  .instructionItem{
+    padding: 0 2rem !important;
+    padding-left: 4rem !important;
+  }
+  .instructionButton{
+    margin: 20px !important;
+    display: flex important;
+    justify-content: center !important;
+  }
 }

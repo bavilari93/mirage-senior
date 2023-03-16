@@ -38,3 +38,11 @@ export const white = {
   100: "#F8F6F4",
   200: "#E0E9F8",
 };
+
+
+export const color = {
+  'google-blue 100': `#4285F4`,
+  'google-blue-dark 100': `#61a0bf`,  // ADDED
+  'google-blue-light 100': `#1bb6ff`, // ADDED
+  'white 100': `rgb(255,255,255)`,
+}

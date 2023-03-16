@@ -11,6 +11,8 @@ export const initialState: CommonStateModel = {
     showModal: false,
     showNav:false,
     modalType:'generic',
+    viewedInteractive:false,
+    viewedStatic:false,
     modalData:{
       messageTitle:'',
       message:'',
@@ -42,6 +44,13 @@ const commonSlice = createSlice({
     handleNavState:(state) =>{
       state.showNav = !state.showNav;
     },
+    handleInteractiveInstructions:(state) =>{
+      state.viewedInteractive = !state.viewedInteractive 
+    },
+    handleStaticInstructions:(state) =>{
+      state.viewedStatic = !state.viewedStatic 
+    }
+
   }
 })
 
@@ -49,6 +58,8 @@ export const {
   promptModal, 
   hideModal,
   handleNavState,
+  handleInteractiveInstructions,
+  handleStaticInstructions
 } = commonSlice.actions;
 
 export default commonSlice.reducer;

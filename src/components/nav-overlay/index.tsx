@@ -73,10 +73,6 @@ const NavOverlay = () => {
       path: PATH_PAGE.mirage.root,
       navText: `${Text.navLinks.about}`,
     },
-    howTo: {
-      path: PATH_PAGE.mirage.instructions,
-      navText: `${Text.navLinks.howTo}`,
-    },
     map: {
       path: PATH_PAGE.map,
       navText: `${Text.navLinks.map}`,

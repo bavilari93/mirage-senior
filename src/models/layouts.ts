@@ -18,6 +18,8 @@ export type LayoutProps = {
     noWrap?: boolean;
     onClick?:any;
     fontWeight?: 'light' | 'regular' | 'medium' | 'bold' | 100 | 200 | 300 | 400 | 500 | 600;
+    fontSize?:string;
+    className?:string;
   }
   
   export type ButtonProps = {
@@ -35,6 +37,6 @@ export type LayoutProps = {
     onPress: () => void;
     sx?: SxProps;
     disabled?:boolean;
-    withCoolDown?: boolean;
-    numberOfClicks?:number;
+    className?:string;
   }
+

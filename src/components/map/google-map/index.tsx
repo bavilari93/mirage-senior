@@ -1,84 +1,128 @@
-import React, {useMemo} from 'react'
-import { GoogleMap,Marker, useLoadScript } from '@react-google-maps/api'
-import { configVars } from 'common/config/enviroment-variables'
-import { useAppDispatch } from 'redux/store';
-import { promptModal } from 'redux/slices/common';
-import { staticMapModal } from 'common/helper/modals';
+import React, { useState, useEffect } from "react";
+import {
+  GoogleMap,
+  Marker,
+  MarkerClusterer,
+  useLoadScript,
+} from "@react-google-maps/api";
+import { configVars } from "common/config/enviroment-variables";
+import { useDispatch } from "react-redux";
+import { promptModal } from "redux/slices/common";
+import { staticMapModal } from "common/helper/modals";
+import { Text } from "common/text";
 
-//todo create a list of markers 
-//todo: check how to use multiple useMemo
-//todo: use geolocation to get user location and add a markerto it.
-//todo: check geolocation and show blinking location on the map?
+const mapContainerStyle = {
+  width: "100%",
+  height: "500px",
+};
+
+const center = {
+  lat: 32.07313268439657,
+  lng: -81.09285765010242,
+};
+
+const markersList = [
+  { lat: 32.066309, lng: -81.096695 , icon:require('assets/icons8-saitama-96.png')},
+  { lat: 32.05901901551292, lng: -81.09454088927525, icon:require('assets/icons8-jake-96.png') },
+];
 
 const options = {
-  mapId:configVars.GOOGLE_MAP_ID,
-  zoomControlOptions: {
-   
-    // ...otherOptions
-  }
-}
-/*
-  reference to render multiple markers https://dev.to/jessicabetts/how-to-use-google-maps-api-and-react-js-26c2
- */
-function GoogleMapInteractive() {
-  const dispatch = useAppDispatch();
-  //use Memo so it doesn't keep calculating the position
-  const center = useMemo(()=>({ lat: 32.07313268439657, lng: -81.09285765010242 }),[])
-  //marker-frosty park 
-  const parkMarketPosition =useMemo(()=>({ lat:32.066309,lng: -81.096695}),[]);
-  //home
-  const homeMarket = useMemo(()=>({ lat:32.05901901551292,lng: -81.09454088927525}),[])
+  imagePath:
+    "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+};
+
+declare const google: any;
+
+const GoogleMapInteractive = () => {
+  const [userLocation, setUserLocation] = useState<null | { lat: number; lng: number }>(null);
+  const [markers, setMarkers] = useState(markersList);
+  const [options, setOptions] = useState({ imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m" });
+  const dispatch = useDispatch()
+
 
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey:configVars.GOOGLE_API_KEY,
+    googleMapsApiKey: configVars.GOOGLE_API_KEY,
     mapIds: [configVars.GOOGLE_MAP_ID],
-    id:'mirage'
-    // ...otherOptions
-  })
+    id: "mirage",
+    libraries:["geometry"]
+  });
 
-  const renderMap = () => {
-    return <GoogleMap
-      mapContainerStyle={{width:"100%", height:"100vh"}}
-      zoom={15.2}
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lng: longitude });
+        },
+        () => null,
+        { enableHighAccuracy: true }
+      );
+    }
+  }, []);
+
+  const isMarkerCloseToUser = (marker: any) => {
+    if (!userLocation || !google) return false;
+    const distance = google.maps.geometry.spherical.computeDistanceBetween(
+      new google.maps.LatLng(userLocation),
+      new google.maps.LatLng(marker)
+    );
+    return distance < 1;
+  };
+
+
+  const onMapClick = (event: any) => {
+    setMarkers((current) => [...current, { lat: event.latLng.lat(), lng: event.latLng.lng() , icon: event.icon }]);
+  };
+
+  const displayModal = (marker:any) =>{
+    if(configVars.IS_MAP_VIEW_ENABLED  || isMarkerCloseToUser(marker) ){
+      dispatch(promptModal({modalData: Text.mapModal}))
+
+    }else{
+      //display modal get witin a 50 meter radius
+      dispatch(promptModal({modalData: Text.errorModal}))
+    }
+  }
+
+  if (loadError) return <>"Error loading maps"</>;
+  if (!isLoaded) return <>"Loading maps"</>;
+
+
+
+  return isLoaded ? (
+    <GoogleMap
+      onClick={onMapClick}
       center={center}
-      options={options}
-      onLoad={()=>{}}
-    >
-      {
-        // ...Your map components
-        <>
-        <Marker
-        onClick={()=>dispatch(promptModal({modalData: staticMapModal}))}
-        onLoad={()=>{console.log("can add an mini animation")}}
-        position={parkMarketPosition}
-        
-        icon={{
-            url: (require('assets/icons8-jake-96.png')),
-        }}
-        
-      />
-
-      <Marker
-      onClick={()=>dispatch(promptModal({modalData: staticMapModal}))}
-      onLoad={()=>{console.log("can add an mini animation")}}
-      position={homeMarket}
-      
-      icon={{
-          url: (require('assets/icons8-saitama-96.png')),
+      zoom={15}
+      mapContainerStyle={{ height: "100vh", width: "100%" }}
+      options={{
+        mapId: configVars.GOOGLE_MAP_ID,
       }}
-      
-    />
-    </>
-      }
+    >
+      {userLocation && <Marker position={userLocation} />}
+      <MarkerClusterer options={options}>
+        {(clusterer) => (
+          <>
+            {markers.map((marker: any) => (
+              <Marker
+              key={`${marker.lat}-${marker.lng}`}
+              position={marker}
+              clusterer={clusterer}
+              onClick={() => {displayModal(marker)}}
+              opacity={isMarkerCloseToUser(marker) ? 0.5 : 1}
+              icon={{
+                url: (marker.icon),
+              }}
+              />
+            ))}
+          </>
+        )}
+      </MarkerClusterer>
     </GoogleMap>
-  }
-
-  if (loadError) {
-    return <div>Map cannot be loaded right now, sorry.</div>
-  }
-
-  return isLoaded ? renderMap() : null
-}
+  ) : (
+    <div>error</div>
+  );
+};
 
 export default GoogleMapInteractive;

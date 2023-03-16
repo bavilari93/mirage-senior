@@ -23,6 +23,7 @@
   },
   "include": [
     "src",
+    "src/google-maps.d.ts",
     "decs.d.ts"
   ]
 }
