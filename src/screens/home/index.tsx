@@ -19,7 +19,7 @@ const Home = (): JSX.Element => {
       <Box sx={styles.heroDescription} >
       <AnimationOnScroll
           animateIn="animate__fadeInUp"
-          style={{ textAlign: "center", margin:"-20px" }}
+          style={{ textAlign: "center", margin:"-20px" }} 
           initiallyVisible={false}
         >
           <TextItem

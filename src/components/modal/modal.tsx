@@ -55,32 +55,7 @@ export function Modal() {
         />
         <p>{message}</p>
         <Box sx={styles.buttonWrapper}>
-        {/* <button
-                style={styles.buttonStyle}
-                onClick={() => {
-                  "selecting";
-                }}
-              >{qrCode}</button>
-          {qrCode && isMobile && (
-            <div>
-              <button
-                style={styles.buttonStyle}
-                onClick={() => {
-                  "selecting";
-                }}
-              >
-               {qrCode}
-              </button>
-              <input
-                type="file"
-                ref={fileInputRef}
-                style={{ display: "none" }}
-                onChange={() => {
-                  console.log("fileee");
-                }}
-              />
-            </div>
-          )} */}
+        
 
           {adobeExperience && (
             <DynamicButton

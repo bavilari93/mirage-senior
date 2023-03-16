@@ -1,6 +1,9 @@
 {
   "name": "mirage-senior",
   "version": "0.1.0",
+  "engines": {
+    "npm": "9.6.2"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -25,9 +28,9 @@
     "express-https-redirect": "^1.0.0",
     "gsap": "^3.11.4",
     "path": "^0.12.7",
-    "react": "^18.2.0",
+    "react": "^17.0.0",
     "react-animation-on-scroll": "^5.1.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^17.0.0",
     "react-image-mapper": "^0.0.15",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
