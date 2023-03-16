@@ -15,11 +15,10 @@ const NavBar = () => {
       <AppBar
         position="fixed"
         sx={{
-          backgroundColor: grey[50],
           zIndex: (theme) => theme.zIndex.drawer + 1,
           border: "none",
-
           boxShadow: "none",
+          backgroundColor:"transparent"
         }}
       >
         <Toolbar>

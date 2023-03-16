@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2174.2 1195.34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f8d9d6;
+        stroke-miterlimit: 10;
+        stroke-width: 1.63px;
+      }
+
+      .cls-2 {
+        fill: #030100;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer 2">
+    <g id="bg">
+      <g id="lines">
+        <path class="cls-1" d="m.61,1067.31s267.89-302.06,1054.78-302.06,1118.22,325.06,1118.22,325.06"/>
+        <path class="cls-1" d="m11.61,726.31s286-456,1045-456c811.36,0,1111,519,1111,519"/>
+        <path class="cls-1" d="m549.61.31s94.43,228.58,130,380c35,149,79,580,74,795"/>
+        <path class="cls-1" d="m96.61,382.31s121,192,159,391,72,349,69,422"/>
+        <path class="cls-1" d="m1584,.31s-94.43,228.58-130,380c-35,149-79,580-74,795"/>
+        <path class="cls-1" d="m2037,382.31s-121,192-159,391c-38,199-72,349-69,422"/>
+      </g>
+      <g id="stars">
+        <circle class="cls-2" cx="1651.61" cy="354.31" r="5"/>
+        <circle class="cls-2" cx="1691.61" cy="368.31" r="3"/>
+        <circle class="cls-2" cx="1696.61" cy="323.31" r="2"/>
+        <circle class="cls-2" cx="1727.61" cy="345.31" r="2"/>
+        <circle class="cls-2" cx="1584.61" cy="272.31" r="2"/>
+        <circle class="cls-2" cx="1725.61" cy="227.31" r="2"/>
+        <circle class="cls-2" cx="1623.61" cy="169.31" r="2"/>
+        <circle class="cls-2" cx="1657.61" cy="167.31" r="2"/>
+        <circle class="cls-2" cx="1820.61" cy="134.31" r="2"/>
+        <circle class="cls-2" cx="1931.61" cy="186.31" r="2"/>
+        <circle class="cls-2" cx="1838.61" cy="242.31" r="5"/>
+        <circle class="cls-2" cx="1911.61" cy="313.31" r="5"/>
+        <circle class="cls-2" cx="1891.61" cy="329.31" r="2"/>
+        <circle class="cls-2" cx="1886.61" cy="411.31" r="3"/>
+        <circle class="cls-2" cx="1781.61" cy="483.31" r="2"/>
+        <circle class="cls-2" cx="1933.61" cy="595.31" r="2"/>
+        <circle class="cls-2" cx="1961.61" cy="778.31" r="5"/>
+        <circle class="cls-2" cx="1457.61" cy="348.31" r="1"/>
+        <circle class="cls-2" cx="1470.61" cy="202.31" r="1"/>
+        <circle class="cls-2" cx="1358.61" cy="199.31" r="4"/>
+        <circle class="cls-2" cx="1327.61" cy="152.31" r="3"/>
+        <circle class="cls-2" cx="1082.61" cy="244.31" r="2"/>
+        <circle class="cls-2" cx="1019.61" cy="318.31" r="3"/>
+        <circle class="cls-2" cx="966.61" cy="341.31" r="3"/>
+        <circle class="cls-2" cx="1256.61" cy="428.31" r="3"/>
+        <circle class="cls-2" cx="734.61" cy="351.31" r="2"/>
+        <circle class="cls-2" cx="770.61" cy="193.31" r="4"/>
+        <circle class="cls-2" cx="739.61" cy="107.31" r="3"/>
+        <circle class="cls-2" cx="623.61" cy="172.31" r="2"/>
+        <circle class="cls-2" cx="651.61" cy="510.31" r="1"/>
+        <circle class="cls-2" cx="413.61" cy="506.31" r="2"/>
+        <circle class="cls-2" cx="377.61" cy="487.31" r="2"/>
+        <circle class="cls-2" cx="477.61" cy="853.31" r="2"/>
+        <circle class="cls-2" cx="338.61" cy="851.31" r="3"/>
+        <circle class="cls-2" cx="214.61" cy="983.31" r="5"/>
+        <circle class="cls-2" cx="200.61" cy="716.31" r="2"/>
+        <circle class="cls-2" cx="343.61" cy="735.31" r="2"/>
+        <circle class="cls-2" cx="149.61" cy="528.31" r="2"/>
+        <circle class="cls-2" cx="269.61" cy="396.31" r="5"/>
+        <circle class="cls-2" cx="243.61" cy="422.31" r="3"/>
+        <circle class="cls-2" cx="240.61" cy="391.31" r="2"/>
+        <circle class="cls-2" cx="377.61" cy="340.31" r="2"/>
+        <circle class="cls-2" cx="246.61" cy="318.31" r="3"/>
+        <circle class="cls-2" cx="371.61" cy="199.31" r="2"/>
+        <circle class="cls-2" cx="187.61" cy="206.31" r="4"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -80,6 +80,7 @@ const styles = {
       position:'relative',
       padding:'0 4rem',
       textAlign: "initial",
+      
     },
     interactiveText:{
         fontFamily: "Dahlia",
@@ -93,7 +94,7 @@ const styles = {
         fontweight:'800',
         WebkitBackgroundClip:"text",
         WebkitTextFillColor: "#00000036",
-        backgroundImage: "linear-gradient(to right,#FFC5F2,#8B8EF3 50%,#fff 50%)",
+        backgroundImage: "linear-gradient(to right,#FFC5F2,#f4a18e 50%,#fff 50%)",
         backgroundSize: "200% 100%",
         backgroundPosition: "-100%",
         transition: "all 0.3s ease-in-out",

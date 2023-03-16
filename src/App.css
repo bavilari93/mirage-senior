@@ -37,6 +37,62 @@
   }
 }
 
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0px);
+  transition: background-color 1.5s ease-out;
+}
+
+.bottom-button {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 20px;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  object-fit: cover;
+}
+.hero-wrapper{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url('assets/header/Stars&line.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:'cover' !important;
+}
+
+.ImageMapper {
+  width: 100%;
+  height: 100%;
+}
+
 /* ########################### FONTS ################################# */
 @font-face {
   font-family: 'Dahlia';

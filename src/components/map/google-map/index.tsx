@@ -22,8 +22,10 @@ const center = {
 };
 
 const markersList = [
-  { lat: 32.066309, lng: -81.096695 , icon:require('assets/icons8-saitama-96.png')},
-  { lat: 32.05901901551292, lng: -81.09454088927525, icon:require('assets/icons8-jake-96.png') },
+  { lat: 32.066309, lng: -81.096695 , icon:require('assets/fountain.png'), url:"https://adobeaero.app.link/WRQTAp5ddyb"},//park
+  { lat: 32.05901901551292, lng: -81.09454088927525, icon:require('assets/house.png'),  url:""},//home
+  { lat: 32.08077622437831, lng: -81.09693603132317, icon:require('assets/lulu.png'),  url:"https://adobeaero.app.link/PXHan2v5cyb" }, //lulu
+  { lat: 32.06629756709852, lng: -81.0924795773721, icon:require('assets/kroger.png'),  url:"" }, //kroger
 ];
 
 const options = {
@@ -72,12 +74,12 @@ const GoogleMapInteractive = () => {
 
 
   const onMapClick = (event: any) => {
-    setMarkers((current) => [...current, { lat: event.latLng.lat(), lng: event.latLng.lng() , icon: event.icon }]);
+    setMarkers((current) => [...current, { lat: event.latLng.lat(), lng: event.latLng.lng() , icon: event.icon, url: event.url }]);
   };
 
-  const displayModal = (marker:any) =>{
+  const displayModal = (marker:any, url:string) =>{
     if(configVars.IS_MAP_VIEW_ENABLED  || isMarkerCloseToUser(marker) ){
-      dispatch(promptModal({modalData: Text.mapModal}))
+      dispatch(promptModal({modalData: {...Text.mapModal, redirectLink:url}}))
 
     }else{
       //display modal get witin a 50 meter radius
@@ -109,7 +111,7 @@ const GoogleMapInteractive = () => {
               key={`${marker.lat}-${marker.lng}`}
               position={marker}
               clusterer={clusterer}
-              onClick={() => {displayModal(marker)}}
+              onClick={() => {displayModal(marker,marker.url)}}
               opacity={isMarkerCloseToUser(marker) ? 0.5 : 1}
               icon={{
                 url: (marker.icon),

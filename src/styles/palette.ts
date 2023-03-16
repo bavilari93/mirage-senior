@@ -11,7 +11,7 @@ export const gradient = {
   purpleToBlue: "linear-gradient(180deg, #8B8EF3 0%, #0B27ED 135.31%)",
   blueToBlack:
     "linear-gradient(180deg, rgba(48, 87, 187, 0.65) 0%, rgba(13, 4, 50, 0) 131.82%)",
-  pinkToPurple: "linear-gradient(180deg, #FFC5F2 0%, #8B8EF3 131.82%)",
+  pinkToPurple: "linear-gradient(180deg, #f4a18e 0%, #8B8EF3 131.82%)",
 };
 
 export const green = {

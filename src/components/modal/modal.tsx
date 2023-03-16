@@ -55,7 +55,7 @@ export function Modal() {
         />
         <p>{message}</p>
         <Box sx={styles.buttonWrapper}>
-        <button
+        {/* <button
                 style={styles.buttonStyle}
                 onClick={() => {
                   "selecting";
@@ -80,12 +80,12 @@ export function Modal() {
                 }}
               />
             </div>
-          )}
+          )} */}
 
           {adobeExperience && (
             <DynamicButton
               text={adobeExperience}
-              onPress={() => {}}
+              onPress={()=> {window.open(redirectLink,  "_blank")}}
               sx={styles.buttonStyle}
             />
           )}
