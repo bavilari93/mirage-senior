@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from "@mui/material";
 import { white } from "styles/palette";
 import { grey } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
 
 export function Modal() {
   const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ export function Modal() {
   const {
     common: { modalData },
   } = useAppSelector((state) => state);
+  const navigate = useNavigate();
   const fileInputRef = React.useRef(null);
 
   const [width, setWidth] = React.useState<number>(window.innerWidth);
@@ -40,6 +42,7 @@ export function Modal() {
     displayButton,
     internalRedirect,
     redirectLink,
+    staticPath
   } = modalData;
 
   return (
@@ -55,7 +58,13 @@ export function Modal() {
         />
         <p>{message}</p>
         <Box sx={styles.buttonWrapper}>
-        
+          {staticPath && (
+            <DynamicButton
+              text={"WEB"}
+              onPress={()=> navigate(staticPath)}
+              sx={styles.buttonStyle}
+            />
+          )}
 
           {adobeExperience && (
             <DynamicButton

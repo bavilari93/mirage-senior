@@ -40,6 +40,18 @@ const AppRoutes :RoutesProps = {
       path: PATH_PAGE.mirage.map.static,
       component: lazy(() => import('screens/static-map'))
     },
+    {
+      path: "/mirage/interactive-map/room",
+      component: lazy(() => import('screens/room'))
+    },
+    {
+      path: "../../htmls/forsyth/build/index.html",
+      component: lazy(() => import('screens/cheesecake'))
+    },
+    {
+      path: "/mirage/interactive-map/park",
+      component: lazy(() => import('screens/park'))
+    },
     
   ]
 };

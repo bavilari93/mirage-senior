@@ -8,8 +8,9 @@ import {
 import { configVars } from "common/config/enviroment-variables";
 import { useDispatch } from "react-redux";
 import { promptModal } from "redux/slices/common";
-import { staticMapModal } from "common/helper/modals";
+
 import { Text } from "common/text";
+
 
 const mapContainerStyle = {
   width: "100%",
@@ -22,9 +23,9 @@ const center = {
 };
 
 const markersList = [
-  { lat: 32.066309, lng: -81.096695 , icon:require('assets/fountain.png'), url:"https://adobeaero.app.link/WRQTAp5ddyb"},//park
-  { lat: 32.05901901551292, lng: -81.09454088927525, icon:require('assets/house.png'),  url:""},//home
-  { lat: 32.08077622437831, lng: -81.09693603132317, icon:require('assets/lulu.png'),  url:"https://adobeaero.app.link/PXHan2v5cyb" }, //lulu
+  { lat: 32.066309, lng: -81.096695 , icon:require('assets/fountain.png'), url:"https://adobeaero.app.link/WRQTAp5ddyb", staticPath:"/mirage/interactive-map/park"},//park
+  { lat: 32.05901901551292, lng: -81.09454088927525, icon:require('assets/house.png'),  url:"",  staticPath:"/mirage/interactive-map/room"},//home
+  { lat: 32.08077622437831, lng: -81.09693603132317, icon:require('assets/lulu.png'),  url:"https://adobeaero.app.link/PXHan2v5cyb",staticPath:"/mirage/interactive-map/cheesecake" }, //lulu
   { lat: 32.06629756709852, lng: -81.0924795773721, icon:require('assets/kroger.png'),  url:"" }, //kroger
 ];
 
@@ -77,9 +78,9 @@ const GoogleMapInteractive = () => {
     setMarkers((current) => [...current, { lat: event.latLng.lat(), lng: event.latLng.lng() , icon: event.icon, url: event.url }]);
   };
 
-  const displayModal = (marker:any, url:string) =>{
+  const displayModal = (marker:any, url:string, staticPath:string) =>{
     if(configVars.IS_MAP_VIEW_ENABLED  || isMarkerCloseToUser(marker) ){
-      dispatch(promptModal({modalData: {...Text.mapModal, redirectLink:url}}))
+      dispatch(promptModal({modalData: {...Text.mapModal, redirectLink:url, staticPath}}))
 
     }else{
       //display modal get witin a 50 meter radius
@@ -111,7 +112,7 @@ const GoogleMapInteractive = () => {
               key={`${marker.lat}-${marker.lng}`}
               position={marker}
               clusterer={clusterer}
-              onClick={() => {displayModal(marker,marker.url)}}
+              onClick={() => {displayModal(marker,marker.url, marker.staticPath)}}
               opacity={isMarkerCloseToUser(marker) ? 0.5 : 1}
               icon={{
                 url: (marker.icon),

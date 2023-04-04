@@ -20,4 +20,5 @@ export type CommonStateModel = {
     displayRestoreButton?: boolean;
     internalRedirect?: boolean;
     redirectLink?: string;
+    staticPath?:string;
   }
