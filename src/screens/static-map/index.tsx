@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAppSelector } from "redux/store";
-import { Text } from "common/text";
-import { promptModal } from "redux/slices/common";
 import { useDispatch } from "react-redux";
 import { StaticMap as ImageMapper } from "react-easy-maps";
 
 import Instructions from "components/instructions";
-import image from "assets/map.png";
+import image from "../../assets/map.png";
 
 const StaticMap = () => {
   const {
@@ -44,7 +42,7 @@ const StaticMap = () => {
         return <Instructions setNext={setView} type="static" />;
       case "map":
         return (
-          <div
+          <map
             style={{
               height: "100vh",
               display: "flex",
@@ -52,15 +50,11 @@ const StaticMap = () => {
               alignItems: "center",
             }}
           >
-            <ImageMapper
-              src={image}
-              map={{ areas: AREAS }}
-              width={500}
-              height={900}
-              lineWidth={4}
-              strokeColor="transparent"
-            />
-          </div>
+            <img src={image} alt="Clickable Image" style={{ position: "relative", top: 0, left: 0, zIndex: 1, height:"inherit", width:"inherit" }} />
+            {AREAS.map((area) => (
+              <area key={area.id} shape="circle" coords={area.coords.join(",")} href={area.link.href} target={area.link.target} style={{border:'red solid 1px', position:'absolute', zIndex:"100", width:"50px", height:"50px", borderRadius: "50%" }} />
+            ))}
+          </map>
         );
     }
   };
