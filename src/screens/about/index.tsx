@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import { useMediaQuery } from '@material-ui/core';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Text } from 'common/text';
 import TextItem from 'components/text';
 import React from 'react';

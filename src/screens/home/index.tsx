@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { useMediaQuery } from '@material-ui/core';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useNavigate } from "react-router";
 import AnimatedComponent from "components/hero";
 import TextItem from "components/text";

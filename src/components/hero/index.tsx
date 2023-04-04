@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { TweenMax, Power3 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { Text } from "common/text";
-import { useMediaQuery } from "@material-ui/core";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 const TimelineComponent = () => {
