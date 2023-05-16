@@ -1,4 +1,4 @@
-declare module 'react-image-mapper';
+declare module 'react-easy-maps';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare global {
